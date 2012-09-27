@@ -1,5 +1,5 @@
-License
-=======
+License for detect-JAVA_HOME
+============================
 
 Copyright (c) 2012, Raphael W. Majeed
 All rights reserved.

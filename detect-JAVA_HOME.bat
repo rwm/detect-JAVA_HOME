@@ -28,12 +28,19 @@ REM * of the authors and should not be interpreted as representing official poli
 REM * either expressed or implied, of the FreeBSD Project.
 REM * 
 
+
+REM *
+REM * Try to determine the JAVA_HOME variable by reading
+REM * Windows registry keys. If no JRE is found, JDKs are
+REM * searched. If found, a local variable JAVA_HOME is set.
+REM * The current Java version is stored in JAVA_VERSION.
+REM *
+
 REM unset variable
 SET JAVA_VERSION=
 
 REM try to lead JRE version from registry
 SET JAVA_KEY=HKLM\Software\JavaSoft\Java Runtime Environment
-REM SET JAVA_KEY=HKLM\Software\JavaSoft\Java Development Kit
 SET cmd="REG QUERY "%JAVA_KEY%" /v CurrentVersion | FIND "CurrentVersion""
 FOR /F "tokens=3" %%i IN ('%cmd%') DO @set JAVA_VERSION=%%i
 IF DEFINED JAVA_VERSION (
